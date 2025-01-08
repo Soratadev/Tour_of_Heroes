@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { HeroCardComponent } from "./components/hero-card/hero-card.component";
+import { HeroListComponent } from './components/hero-list/hero-list.component';
+import { HeroFormComponent } from "./components/hero-form/hero-form.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeroCardComponent],
+  imports: [HeroListComponent, HeroFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Hello_Angular';
+  title = 'Tour of Heroes';
 }
