@@ -1,4 +1,4 @@
 <div class="hero-page">
-    <app-hero-list/>
-    <app-hero-form/>
+    <app-hero-list [heroes]="heroes"/>
+    <app-hero-form (add)="addHero($event)"/>
 </div>

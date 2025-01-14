@@ -7,54 +7,43 @@
             <div class="column">
                 <div class="input-group">
                     <label for="name">Name: </label>
-                    <input formControlName="name" type="text" id="name" name="name" required>
+                    <input formControlName="name" type="text" name="name" placeholder="Name" required>
                 </div>
+                @if(this.heroForm.get('name')?.dirty && this.heroForm.get('name')?.invalid){
+                    <div class="error">
+                        @if(this.heroForm.get('name')?.getError('required')){
+                            <div>* Hero name is required</div>
+                        }
+                        @if(this.heroForm.get('name')?.getError('invalidHeroName')){
+                            <div>* This Hero name is not allowed</div>
+                        }
+                    </div>
+                }
                 <div formGroupName="powerstats">
-                    <div class="input-group">
-                        <label for="Strength">Strength: </label>
-                        <input
-                          type="number"
-                          name="Strength"
-                          placeholder="Strength"
-                          formControlName="Strength"
-                        />
-                    </div>
-                    <div class="input-group">
-                        <label for="Agility">Agility: </label>
-                        <input
-                          type="number"
-                          name="Agility"
-                          placeholder="Agility"
-                          formControlName="Agility"
-                        />
-                    </div>
-                    <div class="input-group">
-                        <label for="Intelligence">Intelligence </label>
-                        <input
-                          type="number"
-                          name="Intelligence"
-                          placeholder="Intelligence"
-                          formControlName="Intelligence"
-                        />
-                    </div>
-                    <div class="input-group">
-                        <label for="Speed">Speed: </label>
-                        <input
-                          type="number"
-                          name="Speed"
-                          placeholder="Speed"
-                          formControlName="Speed"
-                        />
-                    </div>
-                    <div class="input-group">
-                        <label for="Stamina">Stamina: </label>
-                        <input
-                          type="number"
-                          name="Stamina"
-                          placeholder="Stamina"
-                          formControlName="Stamina"
-                        />
-                    </div>
+                    @for (powerstat of powerstats; track powerstat) {
+                        <div class="input-group">
+                            <label [for]="powerstat">{{powerstat | titlecase}}: </label>
+                              <input
+                                type="number"
+                                step="5"
+                                [name]="powerstat"
+                                [placeholder]="powerstat | titlecase"
+                                [formControlName]="powerstat"
+                              />
+                          </div>
+                          @if(heroForm.get('powerstats')?.get(powerstat)?.dirty &&
+                              heroForm.get('powerstats')?.get(powerstat)?.invalid){
+                            <div class="error">
+                              @if(heroForm.get('powerstats')?.get(powerstat)?.getError('required')){
+                                <div>* {{ powerstat | titlecase}} is required</div>
+                              }
+                              @if(heroForm.get('powerstats')?.get(powerstat)?.getError('min') ||
+                                  heroForm.get('powerstats')?.get(powerstat)?.getError('max')){
+                                <div>* {{ powerstat | titlecase }} must be a value between 0 and 100</div>
+                              }
+                            </div>
+                        }
+                    }
                 </div>
                 <div class="input-group">
                     <label for="image">Image: </label>
@@ -67,10 +56,18 @@
                     </select>
                 </div>
                 <div class="input-group">
+                    <label for="abilities">Abilities: </label>
+                    <input 
+                        type="text"
+                        name="abilities"
+                        formControlName="abilities"
+                    />
+                </div>
+                <div class="input-group">
                     <label for="alignment">Alignment: </label>
                     <select formControlName="alignment">
-                        <option value="good" selected>Good</option>
-                        <option value="bad">Bad</option>
+                        <option value="Good">Good</option>
+                        <option value="Bad">Bad</option>
                     </select>
                 </div>
             </div>
