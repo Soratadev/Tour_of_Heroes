@@ -9,7 +9,7 @@ import { HeroService } from '../../shared/services/hero.service';
   standalone: true,
   imports: [HeroCardComponent],
   templateUrl: './hero-list.component.html',
-  styleUrl: './hero-list.component.css'
+
 })
 export class HeroListComponent {
   heroes = input.required<Hero[]>();

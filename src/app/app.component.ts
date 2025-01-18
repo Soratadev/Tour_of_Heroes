@@ -3,13 +3,15 @@ import { HeroListComponent } from './components/hero-list/hero-list.component';
 import { HeroFormComponent } from "./components/hero-form/hero-form.component";
 import { Hero } from './shared/interfaces/hero.interface';
 import { HeroService } from './shared/services/hero.service';
+import { HeaderComponent } from "./shared/components/header/header.component";
+import { FooterComponent } from "./shared/components/footer/footer.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeroListComponent, HeroFormComponent],
+  imports: [HeroListComponent, HeroFormComponent, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  
 })
 export class AppComponent {
   title = 'Tour of Heroes';

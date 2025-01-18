@@ -17,7 +17,7 @@ export class HeroFormComponent {
   message = "";
 
   heroForm: FormGroup = this.#formBuilder.group({
-    name:['choose a Hero name', Validators.required, heroNameValidator],
+    name:['Hero name', Validators.required, heroNameValidator],
     image:['https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/370-joker.jpg'],
     alignment: ['Good'],
     powerstats: this.#formBuilder.group({

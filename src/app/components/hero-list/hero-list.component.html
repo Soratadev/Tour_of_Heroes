@@ -1,4 +1,4 @@
-<div class="hero-list">
+<div class="flex flex-wrap gap-2">
     @for (hero of heroes(); track hero.id) {
         <app-hero-card [hero]="hero" (powerstatsChange)="savePowerstats($event)"/>
     }@empty {

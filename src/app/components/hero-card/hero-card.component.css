@@ -1,8 +1,8 @@
 .hero-card{
     display: inline-block;
     text-align: center;
-    width: 170px;
-    height: 500px;
+    width: 200px;
+    height: 550px;
     border-radius: 10px;
     border: 1px solid #ccc;
     padding: 10px;
@@ -17,6 +17,8 @@
 
     .hero-img{
         border-radius: 5px;
+        display: flex;
+        justify-content: center;
     }
 
     .hero-powerstats{
@@ -33,6 +35,10 @@
     }
 
     &.hero-card button{
+        display: flex;
+        float: left;
+        align-items: center;
+        justify-content: center;
         margin-left: 2px;
         height: 20px;
         width: 20px;
