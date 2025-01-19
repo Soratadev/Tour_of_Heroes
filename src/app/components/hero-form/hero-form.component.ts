@@ -2,7 +2,7 @@ import { Component, inject, output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Hero } from '../../shared/interfaces/hero.interface';
 import { heroNameValidator } from '../../shared/validators/hero_name.validator';
-import { CommonModule } from '@angular/common';
+import { CommonModule, LowerCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-hero-form',
@@ -18,7 +18,7 @@ export class HeroFormComponent {
 
   heroForm: FormGroup = this.#formBuilder.group({
     name:['Hero name', Validators.required, heroNameValidator],
-    image:['https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/370-joker.jpg'],
+    image:[''],
     alignment: ['Good'],
     powerstats: this.#formBuilder.group({
       agility: [75, [Validators.required, Validators.min(0), Validators.max(100)]],
