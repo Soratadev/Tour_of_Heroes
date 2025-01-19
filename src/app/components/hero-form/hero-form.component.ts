@@ -18,7 +18,7 @@ export class HeroFormComponent {
 
   heroForm: FormGroup = this.#formBuilder.group({
     name:['Hero name', Validators.required, heroNameValidator],
-    image:[''],
+    image:['', Validators.required],
     alignment: ['Good'],
     powerstats: this.#formBuilder.group({
       agility: [75, [Validators.required, Validators.min(0), Validators.max(100)]],
