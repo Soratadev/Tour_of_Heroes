@@ -1,9 +1,9 @@
 <nav class="flex flex-wrap items-center justify-between p-2 mx-auto bg-gray-800 text-white">
-    <a href="https://github.com/Soratadev/Tour_of_Heroes" class="flex items-center">GitHub: Tour of Heroes</a>
+    <a href="https://github.com/Soratadev/Tour_of_Heroes" class="hover:text-cyan-600">GitHub: Tour of Heroes</a>
     <ul class="flex flex-row space-x-8 font-medium">
-        <li><a class="">Home</a></li>
-        <li><a class="">New Hero</a></li>
-        <li><a class="">Login</a></li>
-        <li><a class="">Register</a></li>
+        <li><a class="hover:text-cyan-600" [routerLink]="['home']" routerLinkActive="text-cyan-600">Home</a></li>
+        <li><a class="hover:text-cyan-600" [routerLink]="['hero','new']" routerLinkActive="text-cyan-600">New Hero</a></li>
+        <li><a class="hover:text-cyan-600" [routerLink]="['auth','login']" routerLinkActive="text-cyan-600">Login</a></li>
+        <li><a class="hover:text-cyan-600" [routerLink]="['auth','register']" routerLinkActive="text-cyan-600">Register</a></li>
     </ul>
 </nav>

@@ -1,43 +1,39 @@
-h3 {
-    @apply text-center;
-  }
-  form {
-    @apply flex flex-col bg-beige rounded-s p-4;
+form {
+  @apply flex flex-col bg-beige rounded-s p-4;
   
-    .input-group {
-      @apply flex;
-    }
-    .input-group > label {
-      @apply mr-4 px-2 py-0;
-    }
-  
-    label {
-      @apply min-w-[35%] text-[1.25rem] font-bold;
-    }
-    input,
-    select {
-      @apply min-w-[65%] p-2 mb-4;
-    }
-    button {
-      @apply bg-green-500 text-white border-none cursor-pointer p-4 rounded-md hover:bg-green-700;
-    }
-    fieldset {
-      @apply border-none;
-    }
-  }
-  
-  .row {
+  .input-group {
     @apply flex;
   }
-  .column {
-    @apply flex flex-col p-4;
+  .input-group > label {
+    @apply mr-4 px-2 py-0;
   }
   
-  .error {
+  label {
+    @apply min-w-[35%] text-[1.25rem] font-bold;
+  }
+  input,
+  select {
+    @apply min-w-[65%] p-2 mb-4;
+  }
+  button {
+    @apply bg-green-500 text-white border-none cursor-pointer p-4 rounded-md hover:bg-green-700;
+  }
+  fieldset {
+    @apply border-none;
+  }
+}
+  
+.row {
+    @apply flex;
+}
+.column {
+    @apply flex flex-col p-4;
+}
+  
+.error {
     @apply text-red-500;
 
     div {
       @apply leading-3 pb-4 ml-6;
     }
-    
-  }
+}

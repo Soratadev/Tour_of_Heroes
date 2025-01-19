@@ -1,25 +1,19 @@
-import { Component, inject } from '@angular/core';
-import { HeroListComponent } from './components/hero-list/hero-list.component';
-import { HeroFormComponent } from "./components/hero-form/hero-form.component";
-import { Hero } from './shared/interfaces/hero.interface';
-import { HeroService } from './shared/services/hero.service';
+import { Component } from '@angular/core';
 import { HeaderComponent } from "./shared/components/header/header.component";
 import { FooterComponent } from "./shared/components/footer/footer.component";
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeroListComponent, HeroFormComponent, HeaderComponent, FooterComponent],
-  templateUrl: './app.component.html',
-  
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
+  template: `
+  <div class="grid grid-rows-[auto_1fr_auto] min-h-screen justify-between gap-2">
+    <app-header class="col-span-3"/>
+    <router-outlet/>
+    <app-footer class="col-span-3"/>
+  </div>`
 })
 export class AppComponent {
   title = 'Tour of Heroes';
-  readonly #heroService = inject(HeroService);
-
-  heroes = this.#heroService.findAll();
-
-  addHero(hero: Hero): void{
-    this.#heroService.add(hero);
-  }
 }

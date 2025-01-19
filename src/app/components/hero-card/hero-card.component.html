@@ -21,6 +21,9 @@
     <div class="hero-abilities">
         <span>Abilities: {{hero().abilities}}</span>
     </div>
+    <hr class="mb-4"/>
+    <span class="btn p-4 text-m w-20" [routerLink]="['/hero','update', hero().id]">Update</span>
+    <span class="btn mx-auto my-2 text-m w-20" [routerLink]="['/hero', hero().id]">Details</span>
 
     
 </div>

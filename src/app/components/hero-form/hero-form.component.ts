@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './hero-form.component.css'
 })
 export class HeroFormComponent {
-  add = output<Hero>()
+  add = output<Hero>({alias: 'sendHero'});
   readonly #formBuilder = inject(FormBuilder);
   message = "";
 
