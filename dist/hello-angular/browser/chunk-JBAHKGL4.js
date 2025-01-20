@@ -1,0 +1,1 @@
+import{$a as a,Sa as o,Ta as i,X as n,eb as r}from"./chunk-RBWI7IGZ.js";var l=(()=>{class e{static{this.\u0275fac=function(t){return new(t||e)}}static{this.\u0275cmp=n({type:e,selectors:[["app-login"]],standalone:!0,features:[r],decls:2,vars:0,template:function(t,s){t&1&&(o(0,"p"),a(1,"login works!"),i())}})}}return e})();export{l as LoginComponent};

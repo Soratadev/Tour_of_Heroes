@@ -1,0 +1,1 @@
+import{$a as a,Sa as n,Ta as i,X as o,eb as r}from"./chunk-RBWI7IGZ.js";var m=(()=>{class e{static{this.\u0275fac=function(t){return new(t||e)}}static{this.\u0275cmp=o({type:e,selectors:[["app-hero-detail"]],standalone:!0,features:[r],decls:2,vars:0,template:function(t,l){t&1&&(n(0,"p"),a(1,"hero-detail works!"),i())}})}}return e})();export{m as HeroDetailComponent};
