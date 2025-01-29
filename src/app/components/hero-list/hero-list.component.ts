@@ -15,7 +15,7 @@ export class HeroListComponent {
   heroes = input.required<Hero[]>();
   readonly #heroService = inject(HeroService);
   savePowerstats({hero, powerstat, value}: HeroPowerstatsChange): void {
-    this.#heroService.update(hero, powerstat, value)
+    this.#heroService.updatePowerstat(hero, powerstat, value)
   }
 
 

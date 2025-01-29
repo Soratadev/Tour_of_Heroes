@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { HeroFormComponent } from "../../../components/hero-form/hero-form.component";
 import { Hero } from '../../../shared/interfaces/hero.interface';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HeroService } from '../../../shared/services/hero.service';
 
 @Component({
   selector: 'app-hero-update',
@@ -11,16 +12,16 @@ import { Router } from '@angular/router';
   template:`
   <div class="bg-cyan-500">
   <h2 class="bg-cyan-500 text-2xl text-center">Update Hero</h2>
-  <app-hero-form (sendHero)="updateHero($event)" />
+  <app-hero-form [hero]="hero" (sendHero)="updateHero($event)" />
   </div>`,
 })
 export class HeroUpdateComponent {
+  readonly #heroService = inject(HeroService);
   readonly #router = inject(Router);
-  updateHero(_hero: any) {
-    const hero: Hero = {
-      ..._hero,
-      id: Math.floor(Math.random() * 1000) + 1,
-    }
+  readonly #activatedRoute = inject(ActivatedRoute);
+  hero: Hero = this.#activatedRoute.snapshot.data['hero'];
+  updateHero(hero: any) {
+    this.#heroService.update(hero);
     this.#router.navigate(['/home']);
   }
 

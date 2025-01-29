@@ -19,8 +19,8 @@ export class HeroService {
       },
       abilities: [
         'Web-slinging',
-        ' Wall-crawling', 
-        ' Superhuman strength'
+        ' wall-crawling', 
+        ' sperhuman strength'
       ],
       image: 'https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/620-spider-man.jpg',
       alignment: 'Good',
@@ -36,7 +36,7 @@ export class HeroService {
         intelligence: 100,
       },
       abilities: [
-        'robotic tentacles',
+        'Robotic tentacles',
         ' super intelligence',
         ' resilience'
       ],
@@ -54,7 +54,7 @@ export class HeroService {
         intelligence: 80,
       },
       abilities: [
-        'filthy rich',
+        'Filthy rich',
         ' technology',
         ' martial arts'
       ],
@@ -63,17 +63,62 @@ export class HeroService {
     }
   ];
 
+  readonly NullHero: Hero = {
+    id: Math.floor(Math.random() * 1000) + 1000,
+    name: 'Unknown',
+    powerstats: {
+      agility: 0,
+      intelligence: 0,
+      speed: 0,
+      stamina: 0,
+      strength: 0,
+    },
+    abilities: [],
+    image: './assets/unknown_hero1.jpg',
+    alignment: 'Bad'
+  };
+
+  readonly defaultHero: Hero = {
+    id: 370,
+    name: 'Joker',
+    powerstats: {
+      agility: 60,
+      intelligence: 70,
+      speed: 60,
+      stamina: 70,
+      strength: 50,
+    },
+    abilities: ['Laughing gas', ' practical jokes', ' things that make you KABOOM'],
+    image: 'https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/370-joker.jpg',
+    alignment: 'Bad'
+  };
+
   add(hero: Hero){
     this.heroes.push(hero);
   }
-  update(hero: Hero, powerstat: Powerstat, value: number){
+  update(HeroToUpdate: Hero){
+    this.heroes = this.heroes.map(hero => hero.id === HeroToUpdate.id ? HeroToUpdate : hero);
+  }
+  updatePowerstat(hero: Hero, powerstat: Powerstat, value: number){
     hero.powerstats[powerstat] += value;
   }
   findAll(): Hero[] {
     return this.heroes;
   }
   delete(hero: Hero){
-    this.heroes = this.heroes.filter(h => h.id !== hero.id);
+    const index = this.heroes.findIndex((hero) => hero.id === hero.id);
+    if(index !== -1){
+      this.heroes.splice(index, 1);
+    }
+  }
+  findOne(id: number): Hero {
+    return this.heroes.find((hero) => hero.id === id) || this.NullHero;
+  }
+  isDefaultHero(hero: Hero): boolean {
+    return hero.id === this.defaultHero.id;
+  }
+  isNullHero(hero: Hero): boolean {
+    return hero.id === this.NullHero.id;
   }
 
 

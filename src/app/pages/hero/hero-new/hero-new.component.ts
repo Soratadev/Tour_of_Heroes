@@ -20,11 +20,7 @@ export class HeroNewComponent {
   readonly #heroService = inject(HeroService);
   readonly #router = inject(Router);
   
-  addHero(_hero: Hero): void{
-    const hero: Hero = {
-        ..._hero,
-        id: Math.floor(Math.random() * 1000) + 1,
-      };
+  addHero(hero: Hero): void{
     this.#heroService.add(hero);
     this.#router.navigate(['/home']);
   }
